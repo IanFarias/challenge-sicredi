@@ -7,9 +7,6 @@ logging:
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: validate
   datasource:
     username: ${DB_USER}
     password: ${DB_PASSWORD}

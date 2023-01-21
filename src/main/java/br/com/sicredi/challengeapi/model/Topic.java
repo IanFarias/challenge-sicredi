@@ -1,13 +1,18 @@
 package br.com.sicredi.challengeapi.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.UUID;
 
-@Data
+
 @Entity
 @Table(name = "topics")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Topic {
     @Id
     private UUID id;

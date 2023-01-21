@@ -1,10 +1,10 @@
-package br.com.sicredi.challengeapi.topic;
+package br.com.sicredi.challengeapi.dto;
 
 import lombok.Data;
 
 
 @Data
-public class RegisterTopicDTO {
+public class CreateNewTopicDTO {
     String name;
     String description;
 }

@@ -1,6 +1,6 @@
 package br.com.sicredi.challengeapi.controller;
 
-import br.com.sicredi.challengeapi.topic.RegisterTopicDTO;
+import br.com.sicredi.challengeapi.dto.CreateNewTopicDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class TopicController {
 
     @PostMapping
-    public void registerNewTopic(@RequestBody RegisterTopicDTO request) {
+    public void createNewTopic(@RequestBody CreateNewTopicDTO request) {
         System.out.println(request);
     }
 }

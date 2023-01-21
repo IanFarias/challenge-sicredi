@@ -1,15 +1,20 @@
 package br.com.sicredi.challengeapi.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 
-@Data
+
 @Entity
 @Table(name = "voting_sessions")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class VotingSession {
     @Id
     private UUID id;

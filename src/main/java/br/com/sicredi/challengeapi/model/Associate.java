@@ -1,12 +1,8 @@
 package br.com.sicredi.challengeapi.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.UUID;
 
 
 @Entity
@@ -19,7 +15,8 @@ import java.util.UUID;
 public class Associate {
 
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column
     private String name;
 

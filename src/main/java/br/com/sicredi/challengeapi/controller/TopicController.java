@@ -1,14 +1,22 @@
 package br.com.sicredi.challengeapi.controller;
 
-import br.com.sicredi.challengeapi.dto.CreateNewTopicDTO;
+import br.com.sicredi.challengeapi.dto.CreateTopicDTO;
+import br.com.sicredi.challengeapi.service.TopicService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/topics")
 public class TopicController {
 
+    @Autowired
+    TopicService service;
+
     @PostMapping
-    public void createNewTopic(@RequestBody CreateNewTopicDTO request) {
-        System.out.println(request);
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createNewTopic(@Valid @RequestBody CreateTopicDTO request) {
+        service.createTopic(request);
     }
 }

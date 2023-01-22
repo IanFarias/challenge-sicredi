@@ -1,8 +1,8 @@
 CREATE TABLE votes (
-    id VARCHAR(36) NOT NULL,
+    id INTEGER NOT NULL AUTO_INCREMENT,
     vote BOOLEAN NOT NULL,
-    voting_session_id VARCHAR(36) NOT NULL,
-    associate_id VARCHAR(36) NOT NULL,
+    voting_session_id INTEGER NOT NULL,
+    associate_id INTEGER NOT NULL,
 
     PRIMARY KEY(id),
     FOREIGN KEY(associate_id) REFERENCES associates(id),

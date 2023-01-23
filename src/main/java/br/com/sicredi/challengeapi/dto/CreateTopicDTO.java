@@ -1,15 +1,14 @@
 package br.com.sicredi.challengeapi.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
 
+public record CreateTopicDTO(
+        @NotNull
+        @NotBlank
+        String title,
 
-@Getter
-@Setter
-public class CreateTopicDTO {
-    @NotNull
-    String title;
-    @NotNull
-    String description;
+        @NotNull
+        @NotBlank
+        String description) {
 }

@@ -8,8 +8,8 @@ public class AssociateMapper {
     public static Associate fromDtoToEntity(CreateAssociateDTO associateDTO) {
         Associate associate = new Associate();
 
-        associate.setName(associateDTO.getName());
-        associate.setCpf(associateDTO.getCpf());
+        associate.setName(associateDTO.name());
+        associate.setCpf(associateDTO.cpf());
 
         return associate;
     }

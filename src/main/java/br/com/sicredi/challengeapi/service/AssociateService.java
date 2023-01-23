@@ -7,6 +7,8 @@ import br.com.sicredi.challengeapi.repository.AssociateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class AssociateService {
 
@@ -17,5 +19,11 @@ public class AssociateService {
         Associate associate = AssociateMapper.fromDtoToEntity(associateDTO);
 
         repository.save(associate);
+    }
+
+    public ArrayList<Associate> listAll() {
+        ArrayList<Associate> associates = repository.findAll();
+
+        return associates;
     }
 }

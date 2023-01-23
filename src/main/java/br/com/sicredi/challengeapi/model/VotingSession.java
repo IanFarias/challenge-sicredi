@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.UUID;
 
 
 @Entity
@@ -17,7 +16,8 @@ import java.util.UUID;
 @EqualsAndHashCode(of = "id")
 public class VotingSession {
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column
     private LocalDateTime started_at;

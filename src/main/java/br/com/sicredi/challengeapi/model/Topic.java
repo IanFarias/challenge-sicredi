@@ -3,7 +3,6 @@ package br.com.sicredi.challengeapi.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.UUID;
 
 
 @Entity
@@ -15,7 +14,8 @@ import java.util.UUID;
 @EqualsAndHashCode(of = "id")
 public class Topic {
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column
     private String title;
 

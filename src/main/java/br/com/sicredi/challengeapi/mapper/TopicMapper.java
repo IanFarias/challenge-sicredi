@@ -8,8 +8,8 @@ public class TopicMapper {
     public static Topic fromDtoToEntity(CreateTopicDTO topicDTO)  {
         Topic newTopic = new Topic();
 
-        newTopic.setTitle(topicDTO.getTitle());
-        newTopic.setDescription(topicDTO.getDescription());
+        newTopic.setTitle(topicDTO.title());
+        newTopic.setDescription(topicDTO.description());
 
         return newTopic;
     }

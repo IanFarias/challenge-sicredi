@@ -1,11 +1,10 @@
 package br.com.sicredi.challengeapi.repository;
 
 import br.com.sicredi.challengeapi.model.Associate;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.ArrayList;
 
-public interface AssociateRepository extends CrudRepository<Associate, Long> {
+public interface AssociateRepository extends JpaRepository<Associate, Long> {
 
-    ArrayList<Associate> findAll();
+
 }

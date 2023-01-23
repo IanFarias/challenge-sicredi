@@ -7,6 +7,8 @@ import br.com.sicredi.challengeapi.repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class TopicService {
     @Autowired
@@ -18,4 +20,9 @@ public class TopicService {
         repository.save(topic);
     }
 
+    public ArrayList<Topic> listAll() {
+        ArrayList<Topic> topics = repository.findAll();
+
+        return topics;
+    }
 }

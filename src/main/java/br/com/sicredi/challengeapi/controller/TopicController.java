@@ -1,11 +1,14 @@
 package br.com.sicredi.challengeapi.controller;
 
 import br.com.sicredi.challengeapi.dto.CreateTopicDTO;
+import br.com.sicredi.challengeapi.model.Topic;
 import br.com.sicredi.challengeapi.service.TopicService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/topics")
@@ -18,5 +21,11 @@ public class TopicController {
     @ResponseStatus(HttpStatus.CREATED)
     public void createNewTopic(@Valid @RequestBody CreateTopicDTO request) {
         service.createTopic(request);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public ArrayList<Topic> listAllTopics() {
+        return service.listAll();
     }
 }

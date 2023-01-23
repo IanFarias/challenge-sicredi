@@ -12,3 +12,9 @@ spring:
     password: ${DB_PASSWORD}
     url: ${DB_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
+org:
+  jobrunr:
+    background-job-server:
+      enabled: true
+    dashboard:
+      enabled: true

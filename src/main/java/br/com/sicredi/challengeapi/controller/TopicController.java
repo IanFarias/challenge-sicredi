@@ -1,7 +1,7 @@
 package br.com.sicredi.challengeapi.controller;
 
 import br.com.sicredi.challengeapi.dto.CreateTopicDTO;
-import br.com.sicredi.challengeapi.model.Topic;
+import br.com.sicredi.challengeapi.dto.ListTopicDTO;
 import br.com.sicredi.challengeapi.service.TopicService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class TopicController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Topic> listAllTopics() {
+    public List<ListTopicDTO> listAllTopics() {
         return service.listAll();
     }
 }

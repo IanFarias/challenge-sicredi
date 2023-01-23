@@ -19,9 +19,9 @@ public class Vote {
     @Column
     private boolean vote;
 
-    @OneToOne()
-    @JoinColumn(name = "topic_id")
-    private Topic topic;
+    @ManyToOne
+    @JoinColumn(name = "voting_sessions_id")
+    private VotingSession votingSession;
 
     @OneToOne
     @JoinColumn(name = "associate_id")

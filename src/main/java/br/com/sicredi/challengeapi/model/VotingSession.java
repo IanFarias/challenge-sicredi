@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -25,9 +26,8 @@ public class VotingSession {
     @Column
     private LocalDateTime finished_at;
 
-    @OneToMany
-    @JoinColumn(name = "id")
-    private ArrayList<Vote> votesList;
+    @OneToMany(mappedBy = "votingSession", cascade = CascadeType.ALL)
+    private List<Vote> votesList;
 
     @OneToOne
     @JoinColumn(name = "topic_id")

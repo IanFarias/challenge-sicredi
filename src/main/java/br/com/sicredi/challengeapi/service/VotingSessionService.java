@@ -19,10 +19,10 @@ import java.util.Optional;
 public class VotingSessionService {
 
     @Autowired
-    VotingSessionRepository repository;
+    private VotingSessionRepository repository;
 
     @Autowired
-    TopicService topicService;
+    private TopicService topicService;
 
     public void create(Long topicId, Long duration) throws NotFoundException, ErrorOnSaveException {
         Topic topic = topicService.listById(topicId);

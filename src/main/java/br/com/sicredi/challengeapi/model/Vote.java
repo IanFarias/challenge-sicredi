@@ -20,7 +20,7 @@ public class Vote {
     private boolean vote;
 
     @ManyToOne
-    @JoinColumn(name = "voting_sessions_id")
+    @JoinColumn(name = "voting_session_id")
     private VotingSession votingSession;
 
     @OneToOne

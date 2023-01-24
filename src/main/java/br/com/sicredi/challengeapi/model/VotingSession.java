@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,7 +26,7 @@ public class VotingSession {
     private LocalDateTime finished_at;
 
     @Column
-    boolean open;
+    boolean open = true;
 
     @OneToMany(mappedBy = "votingSession", cascade = CascadeType.ALL)
     private List<Vote> votesList;

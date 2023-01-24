@@ -30,7 +30,8 @@ const Modal: React.FC<ModalProps> = ({
     >
       <S.ModalBody>
         <Button className="modal-close-button" onClick={onRequestClose}>
-          X<VisuallyHidden>Fechar Modal</VisuallyHidden>
+          <span aria-hidden>X</span>
+          <VisuallyHidden>Fechar Modal</VisuallyHidden>
         </Button>
         {children}
       </S.ModalBody>

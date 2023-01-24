@@ -1,6 +1,7 @@
 package br.com.sicredi.challengeapi.controller;
 
 import br.com.sicredi.challengeapi.dto.ListVotingSessionDTO;
+import br.com.sicredi.challengeapi.exception.AlreadyExistsException;
 import br.com.sicredi.challengeapi.exception.ErrorOnSaveException;
 import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.service.VotingSessionService;
@@ -21,7 +22,7 @@ public class VotingSessionController {
     @ResponseStatus(HttpStatus.CREATED)
     public void createVotingSession(@PathVariable("topicId") Long topicId,
                                     @RequestParam(value = "duration", required = false) Long duration)
-            throws NotFoundException, ErrorOnSaveException {
+            throws NotFoundException, ErrorOnSaveException, AlreadyExistsException {
         service.create(topicId, duration);
     }
 

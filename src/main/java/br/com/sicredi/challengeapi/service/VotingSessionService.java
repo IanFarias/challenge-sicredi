@@ -1,10 +1,12 @@
 package br.com.sicredi.challengeapi.service;
 
 import br.com.sicredi.challengeapi.dto.ListVotingSessionDTO;
+import br.com.sicredi.challengeapi.dto.ListVotingSessionDetailedDTO;
 import br.com.sicredi.challengeapi.exception.AlreadyExistsException;
 import br.com.sicredi.challengeapi.exception.ErrorOnSaveException;
 import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.model.Topic;
+import br.com.sicredi.challengeapi.model.Vote;
 import br.com.sicredi.challengeapi.model.VotingSession;
 import br.com.sicredi.challengeapi.repository.VotingSessionRepository;
 import org.jobrunr.scheduling.BackgroundJob;
@@ -56,6 +58,15 @@ public class VotingSessionService {
                 .toList();
     }
 
+    public ListVotingSessionDetailedDTO findOne(Long id) throws NotFoundException {
+        VotingSession votingSession = findById(id);
+
+        long positiveVotes = votingSession.getVotesList().stream().filter(Vote::isVote).count();
+        long negativeVotes = votingSession.getVotesList().stream().filter(vote -> !vote.isVote()).count();
+
+        return new ListVotingSessionDetailedDTO(votingSession, positiveVotes, negativeVotes);
+    }
+
     public VotingSession findById(Long id) throws NotFoundException {
         Optional<VotingSession> votingSession = repository.findById(id);
 
@@ -79,4 +90,6 @@ public class VotingSessionService {
     public void processCloseVotingSession(Long minutes, Long id, LocalDateTime started_at) {
         BackgroundJob.schedule(started_at.plusMinutes(minutes), () -> closeVotingSession(id));
     }
+
+
 }

@@ -11,6 +11,7 @@ import br.com.sicredi.challengeapi.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class VoteService {
 
@@ -42,7 +43,7 @@ public class VoteService {
 
         String voteReceived = createVoteDTO.vote().toUpperCase();
 
-        boolean voteValue = voteReceived.equals("SIM") ? true : false;
+        boolean voteValue = voteReceived.equals("SIM");
 
         Vote vote =  new Vote();
         vote.setVotingSession(votingSession);

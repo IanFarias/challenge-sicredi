@@ -1,6 +1,7 @@
 package br.com.sicredi.challengeapi.service;
 
 import br.com.sicredi.challengeapi.dto.ListVotingSessionDTO;
+import br.com.sicredi.challengeapi.exception.AlreadyExistsException;
 import br.com.sicredi.challengeapi.exception.ErrorOnSaveException;
 import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.model.Topic;
@@ -24,8 +25,15 @@ public class VotingSessionService {
     @Autowired
     private TopicService topicService;
 
-    public void create(Long topicId, Long duration) throws NotFoundException, ErrorOnSaveException {
-        Topic topic = topicService.listById(topicId);
+    public void create(Long topicId, Long duration)
+            throws NotFoundException, ErrorOnSaveException, AlreadyExistsException {
+        boolean alreadyExists = repository.existsByTopicId(topicId);
+
+        if(alreadyExists) {
+            throw new AlreadyExistsException();
+        }
+
+        Topic topic = topicService.findById(topicId);
 
         Long minutes = duration != null ? duration : 1;
 

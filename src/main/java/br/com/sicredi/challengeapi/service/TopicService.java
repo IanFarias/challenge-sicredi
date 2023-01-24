@@ -29,7 +29,7 @@ public class TopicService {
         return topics;
     }
 
-    public Topic listById(Long id) throws NotFoundException {
+    public Topic findById(Long id) throws NotFoundException {
         Optional<Topic> topic = repository.findById(id);
 
         if(topic.isEmpty()) {

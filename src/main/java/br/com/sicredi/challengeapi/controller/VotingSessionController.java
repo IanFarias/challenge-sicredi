@@ -19,7 +19,8 @@ public class VotingSessionController {
 
     @PostMapping("/{topicId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createVotingSession(@PathVariable("topicId") Long topicId, @RequestParam("duration") Long duration)
+    public void createVotingSession(@PathVariable("topicId") Long topicId,
+                                    @RequestParam(value = "duration", required = false) Long duration)
             throws NotFoundException, ErrorOnSaveException {
         service.create(topicId, duration);
     }

@@ -26,6 +26,9 @@ public class VotingSession {
     @Column
     private LocalDateTime finished_at;
 
+    @Column
+    boolean open;
+
     @OneToMany(mappedBy = "votingSession", cascade = CascadeType.ALL)
     private List<Vote> votesList;
 

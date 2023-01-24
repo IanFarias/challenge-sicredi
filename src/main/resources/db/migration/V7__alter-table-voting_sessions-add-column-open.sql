@@ -1,1 +1,1 @@
-ALTER TABLE voting_sessions ADD open BOOLEAN DEFAULT FALSE;
+ALTER TABLE voting_sessions ADD open BOOLEAN DEFAULT TRUE;

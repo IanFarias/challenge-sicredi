@@ -27,12 +27,14 @@ public class VotingSessionService {
     public void create(Long topicId, Long duration) throws NotFoundException, ErrorOnSaveException {
         Topic topic = topicService.listById(topicId);
 
+        Long minutes = duration != null ? duration : 1;
+
         VotingSession votingSession = new VotingSession();
         votingSession.setTopic(topic);
 
         try {
             Long id = repository.save(votingSession).getId();
-            processCloseVotingSession(duration, id, LocalDateTime.now());
+            processCloseVotingSession(minutes, id, LocalDateTime.now());
         }catch (Exception e) {
             throw new ErrorOnSaveException();
         }

@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 public class TopicService {
     @Autowired
-    TopicRepository repository;
+    private TopicRepository repository;
 
     public void createTopic(CreateTopicDTO topicDTO) {
         Topic topic = TopicMapper.fromDtoToEntity(topicDTO);

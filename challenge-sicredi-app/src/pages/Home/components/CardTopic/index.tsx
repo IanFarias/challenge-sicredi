@@ -3,17 +3,11 @@ import VisuallyHidden from '../../../../components/baseComponents/VisuallyHidden
 import { TopicResponse } from '../../../../interfaces/topic.interface';
 import * as S from './styles';
 
-interface CardTopicProps {
-  id: number;
-  title: string;
-  description: string;
-}
-
 const CardTopic: React.FC<TopicResponse> = ({
   id,
   title,
   description,
-}: CardTopicProps) => {
+}: TopicResponse) => {
   return (
     <S.Card>
       <div>

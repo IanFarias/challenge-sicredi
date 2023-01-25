@@ -7,7 +7,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  width: ${({ width }) => width || 200}px;
+  width: 100%;
   height: ${({ height }) => height || 40}px;
 
   display: flex;
@@ -16,7 +16,7 @@ export const Container = styled.div<ContainerProps>`
 
   padding: 0 5px;
   border-radius: 5px;
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--text);
 
   &:focus-within {
     box-shadow: #fff 0px 0px 0px 2px, #575757 0px 0px 0px 4px;

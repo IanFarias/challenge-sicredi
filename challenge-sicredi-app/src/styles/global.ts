@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   :root {
     --body-bg: #FFFFFF;
-    --table-bg: #F7F7F7;
+    --card-bg: #e9e7e7;
     --font-family: 'Nunito', sans-serif;
     --white: #FFFFFF;
     --gray: #AAAAAA;
@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     --warning: #FDD95A;
     --danger: #ea5455;
     --primary: #36405d;
+    --dark-primary: #2a3147;
 ;
   }
 

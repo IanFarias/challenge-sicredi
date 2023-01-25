@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from '../../components/Modal';
+import * as S from './styles';
 
 const Home: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -9,7 +10,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <main>
+    <S.Container>
       <h1>Hello world</h1>
       <button onClick={handleModal}>open modal</button>
       <Modal onRequestClose={handleModal} isOpen={openModal}>
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
         praesentium eveniet, recusandae, soluta quod sint? Laboriosam quibusdam
         minus ullam vero.
       </Modal>
-    </main>
+    </S.Container>
   );
 };
 

@@ -41,7 +41,7 @@ export const SuccessOnSubmit = styled.span`
   color: var(--success);
 `;
 
-export const ErrorOnSubmit = styled.span`
+export const ErrorMessage = styled.span`
   text-align: center;
   color: var(--danger);
 `;

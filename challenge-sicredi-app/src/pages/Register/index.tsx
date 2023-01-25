@@ -76,18 +76,18 @@ const Register: React.FC = () => {
             onChange: () => clearMessages()
           })} />
           {errors.name?.type && (
-            <S.ErrorOnSubmit role='alert'>{formErrors['name'][errors.name.type]}</S.ErrorOnSubmit>
+            <S.ErrorMessage role='alert'>{formErrors['name'][errors.name.type]}</S.ErrorMessage>
           )}
         </S.InputContainer>
         <S.InputContainer>
           <S.Label htmlFor='cpf'>CPF</S.Label>
           <Input id='cpf' type='text' maxLength={11} placeholder={'Ex: 71255103027'} {...register('cpf', { onChange: () => clearMessages() })} />
           {errors.cpf?.type && (
-            <S.ErrorOnSubmit role='alert'>{formErrors['cpf'][errors.cpf?.type]}</S.ErrorOnSubmit>
+            <S.ErrorMessage role='alert'>{formErrors['cpf'][errors.cpf?.type]}</S.ErrorMessage>
           )}
         </S.InputContainer>
         {success && <S.SuccessOnSubmit role='alert'>Cadastrado com sucesso!</S.SuccessOnSubmit>}
-        {error && <S.ErrorOnSubmit role='alert'>Erro ao cadastrar o associado!</S.ErrorOnSubmit>}
+        {error && <S.ErrorMessage role='alert'>Erro ao cadastrar o associado!</S.ErrorMessage>}
         <Button type='submit'>Cadastrar</Button>
       </S.Form>
     </S.Container>

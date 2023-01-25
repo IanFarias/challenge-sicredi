@@ -5,9 +5,9 @@ const GlobalStyle = createGlobalStyle`
     --body-bg: #FFFFFF;
     --table-bg: #F7F7F7;
     --font-family: 'Nunito', sans-serif;
-    --color-white: #FFFFFF;
-    --color-gray: #AAAAAA;
-    --color-text: #575757;
+    --white: #FFFFFF;
+    --gray: #AAAAAA;
+    --text: #575757;
     --success: #008732;
     --warning: #FDD95A;
     --danger: #ea5455;
@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    color: var(--color-text);
+    color: var(--text);
     font-family: var(--font-family);
     font-weight: 400;
   }

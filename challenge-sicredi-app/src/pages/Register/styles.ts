@@ -31,7 +31,7 @@ export const Form = styled.form`
     width: 100%;
 
     &:hover {
-      background-color: #2a3147;
+      background-color: var(--dark-primary);
     }
   }
 `;

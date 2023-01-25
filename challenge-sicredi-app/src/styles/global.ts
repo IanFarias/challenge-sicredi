@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    min-height: 100vh;
     background-color: var(--body-bg);
     -webkit-font-smoothing: antialiased;
   }
@@ -40,6 +41,10 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6, strong {
     color: var(--primary);
     font-weight: 700;
+  }
+  
+  ul, ol, li {
+    list-style: none;
   }
 
   button {

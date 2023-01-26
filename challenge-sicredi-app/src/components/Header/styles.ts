@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.header`
   align-items: center;
   justify-content: center;
-  background: #f0e7e7;
+  background: var(--primary);
   display: flex;
   height: 80px;
   margin-bottom: 40px;
@@ -15,7 +15,7 @@ export const Nav = styled.nav`
     gap: 50px;
 
     a {
-      color: var(--primary);
+      color: var(--white);
       height: 44px;
       display: inline-flex;
       align-items: center;

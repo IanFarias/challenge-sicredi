@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import VisuallyHidden from '../../../../components/baseComponents/VisuallyHidden';
-import { TopicResponse } from '../../../../interfaces/topic.interface';
 import * as S from './styles';
 
 interface CardProps {
@@ -22,6 +21,7 @@ const CardTopic: React.FC<CardProps> = ({
       </div>
       <Link to={`/topics/${id}`}>
         Ver Pauta <VisuallyHidden>{title}</VisuallyHidden>
+        <span className="arrow"></span>
       </Link>
     </S.Card>
   );

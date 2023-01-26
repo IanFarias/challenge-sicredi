@@ -9,11 +9,11 @@ export const Container = styled.main`
 
   button {
     align-self: flex-start;
-    background-color: var(--primary);
+    background-color: var(--danger);
     color: var(--white);
 
     &:hover {
-      background-color: var(--dark-primary);
+      background-color: var(--dark-danger);
     }
   }
 `;

@@ -31,15 +31,14 @@ public class VoteService {
         if(!votingSession.isOpen()) {
             throw new VotingSessionClosedExpcetion();
         }
+        Associate associate = associateService.findByCpf(createVoteDTO.associateCpf());
 
         boolean alreadyVote = repository
-                .existsByVotingSessionIdAndAssociateId(votingSessionId, createVoteDTO.associateId());
+                .existsByVotingSessionIdAndAssociateId(votingSessionId, associate.getId());
 
         if(alreadyVote) {
             throw new AlreadyVoteException();
         }
-
-        Associate associate = associateService.findById(createVoteDTO.associateId());
 
         String voteReceived = createVoteDTO.vote().toUpperCase();
 

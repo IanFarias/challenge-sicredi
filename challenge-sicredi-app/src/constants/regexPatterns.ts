@@ -1,1 +1,1 @@
-export const onlyNumbers = new RegExp('^[0-9]+$');
+export const ONLY_NUMBERS = new RegExp('^[0-9]+$');

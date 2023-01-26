@@ -41,11 +41,6 @@ export const SuccessOnSubmit = styled.span`
   color: var(--success);
 `;
 
-export const ErrorMessage = styled.span`
-  text-align: center;
-  color: var(--danger);
-`;
-
 export const InputContainer = styled.div`
   width: 100%;
 `;

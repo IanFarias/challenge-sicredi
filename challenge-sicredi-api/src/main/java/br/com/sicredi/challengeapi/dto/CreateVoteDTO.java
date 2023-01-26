@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record CreateVoteDTO(
         @NotNull
-        Long associateId,
+        String associateCpf,
         @NotNull
         @NotBlank
         String vote) {

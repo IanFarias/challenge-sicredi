@@ -29,7 +29,7 @@ public class AssociateService {
         return associates;
     }
 
-    public Associate findById(Long id) throws NotFoundException {
+    protected Associate findById(Long id) throws NotFoundException {
         Optional<Associate> associate = repository.findById(id);
 
         if(associate.isEmpty()) {
@@ -37,5 +37,15 @@ public class AssociateService {
         }
 
         return associate.get();
+    }
+
+    protected Associate findByCpf(String cpf) throws NotFoundException {
+        Associate associate = repository.findByCpf(cpf);
+
+        if (associate == null) {
+            throw new NotFoundException("Associate Not Found");
+        }
+
+        return associate;
     }
 }

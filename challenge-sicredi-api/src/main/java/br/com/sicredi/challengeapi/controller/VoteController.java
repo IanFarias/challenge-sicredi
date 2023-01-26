@@ -19,9 +19,9 @@ public class VoteController {
 
     @PostMapping("/{votingSessionId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void vote(@PathVariable("votingSessionId") Long topicId,
+    public void vote(@PathVariable("votingSessionId") Long sessionId,
                      @Valid @RequestBody CreateVoteDTO voteDTO)
                         throws NotFoundException, AlreadyVoteException, VotingSessionClosedExpcetion {
-        service.create(topicId, voteDTO);
+        service.create(sessionId, voteDTO);
     }
 }

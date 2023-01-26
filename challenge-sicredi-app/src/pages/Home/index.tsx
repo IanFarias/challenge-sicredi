@@ -8,6 +8,7 @@ import * as S from './styles';
 
 const Home: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [error, setError] = useState(false);
   const [topics, setTopics] = useState<null | TopicResponse[]>(null);
 
   const { listTopics } = useChallengeApi();
@@ -18,9 +19,13 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const getTopics = async () => {
-      const response = await listTopics();
+      try {
+        const response = await listTopics();
 
-      setTopics(response);
+        setTopics(response);
+      } catch (error) {
+        setError(true);
+      }
     };
 
     getTopics();
@@ -32,7 +37,11 @@ const Home: React.FC = () => {
       <Button type="button" onClick={handleModal}>
         Criar nova pauta
       </Button>
-
+      {error && (
+        <h2 style={{ textAlign: 'center' }} role="alert">
+          Erro ao carregar as pautas...
+        </h2>
+      )}
       <S.CardListContainer>
         {topics &&
           topics.map((topic) => {

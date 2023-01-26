@@ -5,8 +5,9 @@ import { useForm } from 'react-hook-form';
 import Button from '../../components/baseComponents/Button';
 import { useChallengeApi } from '../../services/api/useChallengeApi';
 import { useState } from 'react';
-import { onlyNumbers } from '../../constants/regexPatterns';
+import { ONLY_NUMBERS } from '../../constants/regexPatterns';
 import * as S from './styles';
+import InputError from '../../components/baseComponents/InputError';
 
 interface IFormData {
   name: string;
@@ -19,7 +20,7 @@ interface dataFormat {
   };
 }
 
-export const formErrors: dataFormat = {
+const formErrors: dataFormat = {
   name: {
     required: 'Informe o nome do associado!',
   },
@@ -37,7 +38,7 @@ const Register: React.FC = () => {
 
   const associateSchema = object({
     name: string().trim().required(),
-    cpf: string().trim().required().matches(onlyNumbers).min(11).max(11),
+    cpf: string().trim().required().matches(ONLY_NUMBERS).min(11).max(11),
   });
 
   const {
@@ -79,9 +80,7 @@ const Register: React.FC = () => {
             })}
           />
           {errors.name?.type && (
-            <S.ErrorMessage role="alert">
-              {formErrors['name'][errors.name.type]}
-            </S.ErrorMessage>
+            <InputError>{formErrors['name'][errors.name.type]}</InputError>
           )}
         </S.InputContainer>
         <S.InputContainer>
@@ -94,9 +93,7 @@ const Register: React.FC = () => {
             {...register('cpf', { onChange: () => clearMessages() })}
           />
           {errors.cpf?.type && (
-            <S.ErrorMessage role="alert">
-              {formErrors['cpf'][errors.cpf?.type]}
-            </S.ErrorMessage>
+            <InputError>{formErrors['cpf'][errors.cpf?.type]}</InputError>
           )}
         </S.InputContainer>
         {success && (
@@ -104,11 +101,7 @@ const Register: React.FC = () => {
             Cadastrado com sucesso!
           </S.SuccessOnSubmit>
         )}
-        {error && (
-          <S.ErrorMessage role="alert">
-            Erro ao cadastrar o associado!
-          </S.ErrorMessage>
-        )}
+        {error && <InputError>Erro ao cadastrar o associado!</InputError>}
         <Button type="submit">Cadastrar</Button>
       </S.Form>
     </S.Container>

@@ -2,6 +2,7 @@ package br.com.sicredi.challengeapi.service;
 
 import br.com.sicredi.challengeapi.dto.CreateTopicDTO;
 import br.com.sicredi.challengeapi.dto.ListTopicDTO;
+import br.com.sicredi.challengeapi.dto.ListTopicDetailedDTO;
 import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.mapper.TopicMapper;
 import br.com.sicredi.challengeapi.model.Topic;
@@ -24,12 +25,17 @@ public class TopicService {
     }
 
     public List<ListTopicDTO> listAll() {
-        List<ListTopicDTO> topics = repository.findAll().stream().map(ListTopicDTO::new).toList();
-
-        return topics;
+        return repository.findAll().stream().map(ListTopicDTO::new).toList();
     }
 
-    public Topic findById(Long id) throws NotFoundException {
+    public ListTopicDetailedDTO findOne(Long id) throws NotFoundException {
+        Topic topic = findById(id);
+
+        return new ListTopicDetailedDTO(topic);
+    }
+
+
+    protected Topic findById(Long id) throws NotFoundException {
         Optional<Topic> topic = repository.findById(id);
 
         if(topic.isEmpty()) {

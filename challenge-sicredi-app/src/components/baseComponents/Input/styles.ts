@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 interface ContainerProps {
-  width?: number;
   height?: number;
   readonly?: boolean;
 }

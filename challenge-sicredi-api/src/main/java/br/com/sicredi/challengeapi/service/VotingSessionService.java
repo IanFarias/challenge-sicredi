@@ -61,10 +61,7 @@ public class VotingSessionService {
     public ListVotingSessionDetailedDTO findOne(Long id) throws NotFoundException {
         VotingSession votingSession = findById(id);
 
-        long positiveVotes = votingSession.getVotesList().stream().filter(Vote::isVote).count();
-        long negativeVotes = votingSession.getVotesList().stream().filter(vote -> !vote.isVote()).count();
-
-        return new ListVotingSessionDetailedDTO(votingSession, positiveVotes, negativeVotes);
+        return new ListVotingSessionDetailedDTO(votingSession);
     }
 
     public VotingSession findById(Long id) throws NotFoundException {

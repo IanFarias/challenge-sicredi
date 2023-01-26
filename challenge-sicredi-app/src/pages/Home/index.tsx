@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Button from '../../components/baseComponents/Button';
 import Modal from '../../components/Modal';
-import { TopicResponse } from '../../interfaces/topic.interface';
+import { ITopicSimplified } from '../../interfaces/topic.interface';
 import { useChallengeApi } from '../../services/api/useChallengeApi';
 import CardTopic from './components/CardTopic';
 import ModalTopic from './components/ModalTopic';
@@ -10,7 +10,7 @@ import * as S from './styles';
 const Home: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState(false);
-  const [topics, setTopics] = useState<null | TopicResponse[]>(null);
+  const [topics, setTopics] = useState<null | ITopicSimplified[]>(null);
 
   const { listTopics } = useChallengeApi();
 
@@ -43,6 +43,11 @@ const Home: React.FC = () => {
           Erro ao carregar as pautas...
         </h2>
       )}
+      {!topics?.length && (
+        <h2 style={{ textAlign: 'center' }} role="alert">
+          Nenhuma pauta encontrada...
+        </h2>
+      )}
       <S.CardListContainer>
         {topics &&
           topics.map((topic) => {
@@ -52,6 +57,7 @@ const Home: React.FC = () => {
                 id={topic.id}
                 title={topic.title}
                 description={topic.description}
+                isFinished={topic.isFinished}
               />
             );
           })}

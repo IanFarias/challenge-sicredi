@@ -3,6 +3,7 @@ package br.com.sicredi.challengeapi.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -24,4 +25,7 @@ public class Topic {
 
     @OneToOne(mappedBy = "topic")
     private VotingSession session;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 }

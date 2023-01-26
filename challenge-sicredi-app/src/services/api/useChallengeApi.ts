@@ -1,5 +1,8 @@
 import { useMemo } from 'react';
-import { TopicResponse } from '../../interfaces/topic.interface';
+import {
+  ITopicDetailed,
+  ITopicSimplified,
+} from '../../interfaces/topic.interface';
 import { useHttp } from './base/useHttp';
 
 export const useChallengeApi = () => {
@@ -15,11 +18,11 @@ export const useChallengeApi = () => {
     return await httpInstance.post('/topics', data);
   };
 
-  const listTopics = async (): Promise<TopicResponse[]> => {
-    return await httpInstance.get('/topics');
+  const listTopics = async (): Promise<ITopicSimplified[]> => {
+    return (await httpInstance.get('/topics?sort=createdAt,desc')).content;
   };
 
-  const getTopicById = async (id: number): Promise<TopicResponse> => {
+  const getTopicById = async (id: number): Promise<ITopicDetailed> => {
     return await httpInstance.get(`/topics/${id}`);
   };
 

@@ -1,4 +1,4 @@
-export interface TopicResponse {
+export interface ITopicDetailed {
   id: number;
   title: string;
   description: string;
@@ -9,7 +9,15 @@ export interface TopicResponse {
     topic_id: number;
     isOpen: boolean;
     totalVotes: number;
+    duration: number;
     positiveVotes: number;
     negativeVotes: number;
   };
+}
+
+export interface ITopicSimplified {
+  id: number;
+  title: string;
+  description: string;
+  isFinished: boolean;
 }

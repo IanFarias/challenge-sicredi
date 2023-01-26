@@ -7,6 +7,8 @@ import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.service.TopicService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,8 +29,8 @@ public class TopicController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<ListTopicDTO> listAllTopics() {
-        return service.listAll();
+    public Page<ListTopicDTO> listAllTopics(Pageable pageable) {
+        return service.listAll(pageable);
     }
 
     @GetMapping("/{topicId}")

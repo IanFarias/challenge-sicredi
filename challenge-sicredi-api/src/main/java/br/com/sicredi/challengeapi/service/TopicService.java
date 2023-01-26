@@ -8,6 +8,8 @@ import br.com.sicredi.challengeapi.mapper.TopicMapper;
 import br.com.sicredi.challengeapi.model.Topic;
 import br.com.sicredi.challengeapi.repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,8 +26,8 @@ public class TopicService {
         repository.save(topic);
     }
 
-    public List<ListTopicDTO> listAll() {
-        return repository.findAll().stream().map(ListTopicDTO::new).toList();
+    public Page<ListTopicDTO> listAll(Pageable pageable) {
+        return repository.findAll(pageable).map(ListTopicDTO::new);
     }
 
     public ListTopicDetailedDTO findOne(Long id) throws NotFoundException {

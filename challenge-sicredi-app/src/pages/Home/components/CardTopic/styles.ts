@@ -48,3 +48,10 @@ export const Card = styled.article`
     transform: rotate(314deg);
   }
 `;
+
+export const FinishedMessage = styled.span`
+  display: inline-block;
+  color: var(--danger);
+  font-weight: 700;
+  margin-top: 15px;
+`;

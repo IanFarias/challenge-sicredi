@@ -11,6 +11,7 @@ public record ListVotingSessionDetailedDTO(
         LocalDateTime finished_at,
         Long topic_id,
         boolean isOpen,
+        Long duration,
         int totalVotes,
         long positiveVotes,
         long negativeVotes
@@ -23,6 +24,7 @@ public record ListVotingSessionDetailedDTO(
                 votingSession.getFinished_at(),
                 votingSession.getTopic().getId(),
                 votingSession.isOpen(),
+                votingSession.getDuration(),
                 votingSession.getVotesList().size(),
                 votingSession.getVotesList().stream().filter(Vote::isVote).count(),
                 votingSession.getVotesList().stream().filter(vote -> !vote.isVote()).count()

@@ -40,6 +40,7 @@ public class VotingSessionService {
         Long minutes = duration != null ? duration : 1;
 
         VotingSession votingSession = new VotingSession();
+        votingSession.setDuration(minutes);
         votingSession.setTopic(topic);
 
         try {

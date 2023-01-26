@@ -1,23 +1,22 @@
 import { Link } from 'react-router-dom';
 import VisuallyHidden from '../../../../components/baseComponents/VisuallyHidden';
+import { ITopicSimplified } from '../../../../interfaces/topic.interface';
 import * as S from './styles';
 
-interface CardProps {
-  id: number;
-  title: string;
-  description: string;
-}
-
-const CardTopic: React.FC<CardProps> = ({
+const CardTopic: React.FC<ITopicSimplified> = ({
   id,
   title,
   description,
-}: CardProps) => {
+  isFinished,
+}: ITopicSimplified) => {
   return (
     <S.Card>
       <div>
         <h2>{title}</h2>
         <p>{description}</p>
+        {isFinished && (
+          <S.FinishedMessage>Essa pauta já foi encerrada.</S.FinishedMessage>
+        )}
       </div>
       <Link to={`/topics/${id}`}>
         Ver Pauta <VisuallyHidden>{title}</VisuallyHidden>

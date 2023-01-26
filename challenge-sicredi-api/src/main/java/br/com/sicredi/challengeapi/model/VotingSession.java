@@ -28,6 +28,9 @@ public class VotingSession {
     @Column
     boolean open = true;
 
+    @Column
+    Long duration;
+
     @OneToMany(mappedBy = "votingSession", cascade = CascadeType.ALL)
     private List<Vote> votesList;
 

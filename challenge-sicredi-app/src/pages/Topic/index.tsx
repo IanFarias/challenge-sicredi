@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '../../components/baseComponents/Button';
 import Modal from '../../components/Modal';
-import { TopicResponse } from '../../interfaces/topic.interface';
+import { ITopicDetailed } from '../../interfaces/topic.interface';
 import { useChallengeApi } from '../../services/api/useChallengeApi';
+import { formatDate, formatMinutesToHour } from '../../utils/dateFormatters';
 import ModalOpenSession from './components/ModalOpenSession';
 import ModalVote from './components/ModalVote';
 import * as S from './styles';
 
 const Topic: React.FC = () => {
-  const [topic, setTopic] = useState<TopicResponse | null>(null);
+  const [topic, setTopic] = useState<ITopicDetailed | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const { id } = useParams();
 
@@ -42,10 +43,19 @@ const Topic: React.FC = () => {
                 topic?.session.isOpen ? 'Aberta' : 'Fechada'
               }`}
             </span>
-            <span>{'Horário de abertura: ' + topic?.session?.started_at}</span>
+            <span>
+              {`Duração: ${formatMinutesToHour(topic.session.duration)}`}
+            </span>
+            <span>
+              {'Horário de abertura: ' + formatDate(topic?.session?.started_at)}
+            </span>
+            {!topic?.session.finished_at && (
+              <span>Resultado será mostrado ao final da sessão.</span>
+            )}
             {topic?.session.finished_at && (
               <span>
-                {'Horário do fechamento: ' + topic?.session?.started_at}
+                {'Horário do fechamento: ' +
+                  formatDate(topic?.session?.finished_at)}
               </span>
             )}
 

@@ -8,7 +8,7 @@
 - [Java](https://java.com/pt-BR/) 
 - [Spring boot](https://spring.io/projects/spring-boot) 
 - [JobRunr](https://www.jobrunr.io/en/)
-- [MySQL](https://www.mysql.com/)
+- [MySql](https://www.mysql.com/)
 - [FlyWay](https://flywaydb.org/documentation/usage/plugins/springboot)
 
 <br/>

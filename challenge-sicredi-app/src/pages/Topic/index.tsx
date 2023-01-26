@@ -79,7 +79,7 @@ const Topic: React.FC = () => {
         {topic?.session ? (
           <ModalVote sessionId={topic.session.id} closeModal={handleModal} />
         ) : (
-          <ModalOpenSession closeModal={handleModal} />
+          <ModalOpenSession />
         )}
       </Modal>
     </S.Container>

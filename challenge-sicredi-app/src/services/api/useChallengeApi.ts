@@ -7,8 +7,12 @@ export const useChallengeApi = () => {
     'Content-Type': 'application/json',
   });
 
-  const registerAssociate = async (data: any) => {
+  const registerAssociate = async (data: { name: string; cpf: string }) => {
     return await httpInstance.post('/associates', data);
+  };
+
+  const createTopic = async (data: { title: string; description: string }) => {
+    return await httpInstance.post('/topics', data);
   };
 
   const listTopics = async (): Promise<TopicResponse[]> => {
@@ -42,6 +46,7 @@ export const useChallengeApi = () => {
       getTopicById,
       openVotingSession,
       voteTopic,
+      createTopic,
     }),
     []
   );

@@ -23,11 +23,7 @@ const formErrors: {
   },
 };
 
-interface Props {
-  closeModal: () => void;
-}
-
-export const ModalOpenSession: React.FC<Props> = ({ closeModal }: Props) => {
+export const ModalOpenSession: React.FC = () => {
   const { openVotingSession } = useChallengeApi();
   const { id } = useParams();
 
@@ -46,7 +42,7 @@ export const ModalOpenSession: React.FC<Props> = ({ closeModal }: Props) => {
   const onSubmit = async (data: any) => {
     try {
       await openVotingSession(Number(id), data.duration);
-      closeModal();
+
       window.location.reload();
     } catch (error) {
       console.log('erro ao criar sessao');

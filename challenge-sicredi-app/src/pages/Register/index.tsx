@@ -6,8 +6,8 @@ import Button from '../../components/baseComponents/Button';
 import { useChallengeApi } from '../../services/api/useChallengeApi';
 import { useState } from 'react';
 import { ONLY_NUMBERS } from '../../constants/regexPatterns';
-import * as S from './styles';
 import InputError from '../../components/baseComponents/InputError';
+import * as S from './styles';
 
 interface IFormData {
   name: string;

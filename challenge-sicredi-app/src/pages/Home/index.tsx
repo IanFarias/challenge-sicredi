@@ -18,17 +18,17 @@ const Home: React.FC = () => {
     setOpenModal(!openModal);
   };
 
+  const getTopics = async () => {
+    try {
+      const response = await listTopics();
+
+      setTopics(response);
+    } catch (error) {
+      setError(true);
+    }
+  };
+
   useEffect(() => {
-    const getTopics = async () => {
-      try {
-        const response = await listTopics();
-
-        setTopics(response);
-      } catch (error) {
-        setError(true);
-      }
-    };
-
     getTopics();
   }, []);
 
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
       </S.CardListContainer>
 
       <Modal onRequestClose={handleModal} isOpen={openModal} maxWidth={'40%'}>
-        <ModalTopic />
+        <ModalTopic onUpdate={getTopics} closeModal={handleModal} />
       </Modal>
     </S.Container>
   );

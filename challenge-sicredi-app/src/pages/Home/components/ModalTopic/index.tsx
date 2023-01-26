@@ -13,7 +13,12 @@ interface IFormData {
   description: string;
 }
 
-const ModalTopic: React.FC = () => {
+interface Props {
+  onUpdate: () => void;
+  closeModal: () => void;
+}
+
+const ModalTopic: React.FC<Props> = ({ onUpdate, closeModal }: Props) => {
   const [apiError, setApiErro] = useState(false);
   const { createTopic } = useChallengeApi();
 
@@ -33,7 +38,8 @@ const ModalTopic: React.FC = () => {
   const onSubmit = async (data: any) => {
     try {
       await createTopic(data);
-      window.location.reload();
+      onUpdate();
+      closeModal();
     } catch (error) {
       setApiErro(true);
     }

@@ -4,6 +4,7 @@ import Modal from '../../components/Modal';
 import { TopicResponse } from '../../interfaces/topic.interface';
 import { useChallengeApi } from '../../services/api/useChallengeApi';
 import CardTopic from './components/CardTopic';
+import ModalTopic from './components/ModalTopic';
 import * as S from './styles';
 
 const Home: React.FC = () => {
@@ -56,11 +57,8 @@ const Home: React.FC = () => {
           })}
       </S.CardListContainer>
 
-      <Modal onRequestClose={handleModal} isOpen={openModal}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
-        asperiores magni eos ducimus quae quasi officiis at dolorem perferendis
-        praesentium eveniet, recusandae, soluta quod sint? Laboriosam quibusdam
-        minus ullam vero.
+      <Modal onRequestClose={handleModal} isOpen={openModal} maxWidth={'40%'}>
+        <ModalTopic />
       </Modal>
     </S.Container>
   );

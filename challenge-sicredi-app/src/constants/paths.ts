@@ -1,5 +1,5 @@
 export const SCREEN_PATHS = {
   home: '/',
-  register: '/cadastro',
+  register: '/register',
   topic: '/topics/:id',
 };

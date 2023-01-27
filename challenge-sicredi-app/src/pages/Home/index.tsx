@@ -10,6 +10,7 @@ import * as S from './styles';
 const Home: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState(false);
+  const [notFoundMessage, setNotFoundMessage] = useState('');
   const [topics, setTopics] = useState<null | ITopicSimplified[]>(null);
 
   const { listTopics } = useChallengeApi();
@@ -22,6 +23,11 @@ const Home: React.FC = () => {
     try {
       const response = await listTopics();
 
+      if (!response.length) {
+        setNotFoundMessage('Nenhuma pauta encontrada...');
+      } else {
+        setNotFoundMessage('');
+      }
       setTopics(response);
     } catch (error) {
       setError(true);
@@ -43,7 +49,7 @@ const Home: React.FC = () => {
           Erro ao carregar as pautas...
         </h2>
       )}
-      {!topics?.length && !error && (
+      {!!notFoundMessage && (
         <h2 style={{ textAlign: 'center' }} role="alert">
           Nenhuma pauta encontrada...
         </h2>

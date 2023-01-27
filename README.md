@@ -69,3 +69,5 @@ Entre no diretório challenge-app e abra o projeto no VSCode, abra o terminal (C
  
 Para rodar a aplicação, digite yarn dev ou npm run dev e aguarde iniciar a rota: http://127.0.0.1:5173/
 </p>
+
+

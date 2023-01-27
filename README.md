@@ -50,5 +50,6 @@ mas caso isso não ocorra, vá na aba **View -> Tool Windows -> Maven -> LifeCyc
 Com as variáveis de ambiente configuradas, a aplicação poderá ser iniciado. Ao iniciar, o FlyWay automaticamente rodará as migrations das tabelas no banco configurado.
   
 Para rodar a aplicação, encontre o arquivo: ChallengeapiApplication.java e clique em Run (➥ / ▷)
+Por padrão, a aplicação ira rodar nessa URL: http://localhost:8080/challenge-api
 <p/>
 <br/>

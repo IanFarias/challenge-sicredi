@@ -23,6 +23,8 @@
 - [React Modal](http://reactcommunity.org/react-modal/)
 
 ### :electric_plug: Pré-Requisitos:
+- NodeJS v16.10.0
+- Java 17
 
 **Clone este repositório**
 ```
@@ -61,6 +63,9 @@ Por padrão, a aplicação ira rodar nessa URL: http://localhost:8080/challenge-
 Entre no diretório challenge-app e abra o projeto no VSCode, abra o terminal (Ctrl+ ' ) e digite: yarn install ou npm install (dependendo do gerenciador acima escolhido)
  
 > Crie e Configure o arquivo na '.env' na raíz no projeto da forma como está no arquivo '.env.example'. E coloque a URL que está rodando a API.
+ ```
+ VITE_API_URL=
+ ```
  
 Para rodar a aplicação, digite yarn dev ou npm run dev e aguarde iniciar a rota: http://127.0.0.1:5173/
 </p>

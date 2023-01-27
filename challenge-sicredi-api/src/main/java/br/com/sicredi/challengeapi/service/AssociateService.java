@@ -2,10 +2,12 @@ package br.com.sicredi.challengeapi.service;
 
 import br.com.sicredi.challengeapi.dto.CreateAssociateDTO;
 import br.com.sicredi.challengeapi.exception.AlreadyExistsException;
+import br.com.sicredi.challengeapi.exception.InvalidCpfException;
 import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.mapper.AssociateMapper;
 import br.com.sicredi.challengeapi.model.Associate;
 import br.com.sicredi.challengeapi.repository.AssociateRepository;
+import br.com.sicredi.challengeapi.utils.ValidCPF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,10 @@ public class AssociateService {
     @Autowired
     private AssociateRepository repository;
 
-    public void create(CreateAssociateDTO associateDTO) throws AlreadyExistsException {
+    public void create(CreateAssociateDTO associateDTO) throws AlreadyExistsException, InvalidCpfException {
+        if(!ValidCPF.isCPF(associateDTO.cpf())) {
+            throw new InvalidCpfException();
+        }
         boolean alreadyExists = repository.existsByCpf(associateDTO.cpf());
 
         if(alreadyExists) {

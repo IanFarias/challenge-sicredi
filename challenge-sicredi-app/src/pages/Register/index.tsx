@@ -33,6 +33,7 @@ const formErrors: dataFormat = {
 
 const Register: React.FC = () => {
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [success, setSuccess] = useState(false);
   const { registerAssociate } = useChallengeApi();
 
@@ -55,7 +56,12 @@ const Register: React.FC = () => {
       await registerAssociate(data);
       setSuccess(true);
       reset();
-    } catch (error) {
+    } catch (error: any) {
+      if (error.response.data.message === 'Invalid CPF') {
+        setErrorMessage('CPF inválido!');
+      } else {
+        setErrorMessage('');
+      }
       setError(true);
     }
   };
@@ -63,6 +69,7 @@ const Register: React.FC = () => {
   const clearMessages = () => {
     setSuccess(false);
     setError(false);
+    setErrorMessage('');
   };
 
   return (
@@ -103,7 +110,9 @@ const Register: React.FC = () => {
         )}
         {error && (
           <InputError>
-            Erro ao cadastrar o associado! Verifique se o CPF já foi cadastrado!
+            {!!errorMessage
+              ? errorMessage
+              : 'Erro ao cadastrar o associado! Verifique se o CPF já foi cadastrado!'}
           </InputError>
         )}
         <Button type="submit" variant="primary">

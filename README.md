@@ -44,10 +44,12 @@ https://github.com/IanFarias/challenge-sicredi.git
 Entre no diretório 'challenge-api' e abra o projeto no IntelliJ, automaticamente a ferramenta Maven, deve buscar e atualizar todas as dependências, 
 mas caso isso não ocorra, vá na aba **View -> Tool Windows -> Maven -> LifeCycle -> Install**, para caso, fique faltando algo, seja instalado.
   
-> Configure as variáveis de ambiente do projeto no IntelliJ:
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
-    url: ${DB_URL}
+> Configure as variáveis de ambiente do projeto no IntelliJ em Application -> EditConfigurations -> Environment variables**:
+```
+    DB_USER=;
+    DB_PASSWORD=;
+    DB_URL=;
+```
   
 Com as variáveis de ambiente configuradas, a aplicação poderá ser iniciado. Ao iniciar, o FlyWay automaticamente rodará as migrations das tabelas no banco configurado.
   

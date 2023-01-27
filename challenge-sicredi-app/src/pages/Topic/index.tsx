@@ -32,59 +32,78 @@ const Topic: React.FC = () => {
 
   return (
     <S.Container>
-      <h1>{topic?.title}</h1>
-      <S.Description>{topic?.description}</S.Description>
-      <S.SessionInfo>
-        <h2>Sessão de Votação</h2>
-        {topic?.session && (
-          <>
-            <span>
-              {`Status da sessão: ${
-                topic?.session.isOpen ? 'Aberta' : 'Fechada'
-              }`}
-            </span>
-            <span>
-              {`Duração: ${formatMinutesToHour(topic.session.duration)}`}
-            </span>
-            <span>
-              {'Horário de abertura: ' + formatDate(topic?.session?.started_at)}
-            </span>
-            {!topic?.session.finished_at && (
-              <span>Resultado será mostrado ao final da sessão.</span>
-            )}
-            {topic?.session.finished_at && (
-              <span>
-                {'Horário do fechamento: ' +
-                  formatDate(topic?.session?.finished_at)}
-              </span>
-            )}
-
-            {!topic.session.isOpen && (
+      {topic && (
+        <>
+          <h1>{topic.title}</h1>
+          <S.Description>{topic.description}</S.Description>
+          <S.SessionInfo>
+            <h2>Sessão de Votação</h2>
+            {topic.session && (
               <>
-                <h3>Resultado da Votação</h3>
-                <span>{`Total de votos: ${topic.session.totalVotes}`}</span>
-                <span>{`Votos sim: ${topic.session.positiveVotes}`}</span>
-                <span>{`Votos não: ${topic.session.negativeVotes}`}</span>
+                <ul>
+                  <li>
+                    <b>Status da sessão: </b>
+                    {topic.session.isOpen ? 'Aberta' : 'Fechada'}
+                  </li>
+                  <li>
+                    <b>Duração: </b>
+                    {formatMinutesToHour(topic.session.duration)}
+                  </li>
+                  <li>
+                    <b>Horário de abertura: </b>
+                    {formatDate(topic.session.started_at)}
+                  </li>
+                  {topic.session.finished_at && (
+                    <li>
+                      <b>Horário de fechamento: </b>
+                      {formatDate(topic.session.finished_at)}
+                    </li>
+                  )}
+                </ul>
+                {!topic.session.finished_at && (
+                  <span>Resultado será mostrado ao final da sessão.</span>
+                )}
+                {!topic.session.isOpen && (
+                  <>
+                    <h3>Resultado da Votação</h3>
+                    <ul>
+                      <li>
+                        <b>Total de votos: </b>
+                        {topic.session.totalVotes}
+                      </li>
+                      <li>
+                        <b>Votos sim: </b>
+                        {topic.session.positiveVotes}
+                      </li>
+                      <li>
+                        <b>Votos não: </b>
+                        {topic.session.negativeVotes}
+                      </li>
+                    </ul>
+                  </>
+                )}
+
+                {topic.session.isOpen && (
+                  <Button onClick={handleModal} type="button" variant="primary">
+                    Votar
+                  </Button>
+                )}
               </>
             )}
 
-            {topic?.session.isOpen && (
-              <Button onClick={handleModal} type="button" variant="primary">
-                Votar
-              </Button>
+            {!topic.session && (
+              <>
+                <h3 style={{ color: 'var(--danger)' }}>
+                  Nenhuma sessão foi aberta para está pauta.
+                </h3>
+                <Button type="button" onClick={handleModal} variant="primary">
+                  Abrir Sessão
+                </Button>
+              </>
             )}
-          </>
-        )}
-
-        {!topic?.session && (
-          <>
-            <h3>Nenhuma sessão foi aberta para está pauta.</h3>
-            <Button type="button" onClick={handleModal} variant="primary">
-              Abrir Sessão
-            </Button>
-          </>
-        )}
-      </S.SessionInfo>
+          </S.SessionInfo>
+        </>
+      )}
       <Modal onRequestClose={handleModal} isOpen={openModal} maxWidth={'500px'}>
         {topic?.session ? (
           <ModalVote sessionId={topic.session.id} closeModal={handleModal} />

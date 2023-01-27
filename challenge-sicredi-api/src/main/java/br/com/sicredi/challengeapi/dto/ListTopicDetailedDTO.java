@@ -6,7 +6,6 @@ public record ListTopicDetailedDTO(
         Long id,
         String title,
         String description,
-
         ListVotingSessionDetailedDTO session
 ) {
 

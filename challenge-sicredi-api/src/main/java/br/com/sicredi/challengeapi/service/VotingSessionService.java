@@ -6,7 +6,6 @@ import br.com.sicredi.challengeapi.exception.AlreadyExistsException;
 import br.com.sicredi.challengeapi.exception.ErrorOnSaveException;
 import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.model.Topic;
-import br.com.sicredi.challengeapi.model.Vote;
 import br.com.sicredi.challengeapi.model.VotingSession;
 import br.com.sicredi.challengeapi.repository.VotingSessionRepository;
 import org.jobrunr.scheduling.BackgroundJob;

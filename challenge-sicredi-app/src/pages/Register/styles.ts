@@ -25,7 +25,6 @@ export const Form = styled.form`
   margin-top: 40px;
 
   button {
-    background-color: var(--primary);
     color: var(--white);
     font-size: 20px;
     width: 100%;

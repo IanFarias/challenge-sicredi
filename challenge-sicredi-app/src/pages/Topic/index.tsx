@@ -69,7 +69,7 @@ const Topic: React.FC = () => {
             )}
 
             {topic?.session.isOpen && (
-              <Button onClick={handleModal} type="button">
+              <Button onClick={handleModal} type="button" variant="primary">
                 Votar
               </Button>
             )}
@@ -79,7 +79,7 @@ const Topic: React.FC = () => {
         {!topic?.session && (
           <>
             <h3>Nenhuma sessão foi aberta para está pauta.</h3>
-            <Button type="button" onClick={handleModal}>
+            <Button type="button" onClick={handleModal} variant="primary">
               Abrir Sessão
             </Button>
           </>

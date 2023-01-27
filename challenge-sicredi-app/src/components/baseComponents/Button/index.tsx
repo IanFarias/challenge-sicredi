@@ -4,7 +4,7 @@ import * as S from './styles';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   onClick?: () => void;
-  variant?: string;
+  variant?: 'primary';
 }
 
 const Button: React.FC<ButtonProps> = ({

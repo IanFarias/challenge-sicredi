@@ -44,8 +44,8 @@ export const ButtonContainer = styled.div`
     padding: 0 80px;
     color: var(--white);
     font-size: 24px;
-
     background-color: var(--danger);
+
     &:hover {
       filter: brightness(0.9);
     }

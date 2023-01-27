@@ -106,7 +106,9 @@ const Register: React.FC = () => {
             Erro ao cadastrar o associado! Verifique se o CPF já foi cadastrado!
           </InputError>
         )}
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit" variant="primary">
+          Cadastrar
+        </Button>
       </S.Form>
     </S.Container>
   );

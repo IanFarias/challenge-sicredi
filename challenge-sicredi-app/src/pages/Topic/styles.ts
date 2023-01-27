@@ -19,7 +19,6 @@ export const SessionInfo = styled.section`
     font-size: 18px;
     max-width: 200px;
     color: var(--white);
-    background-color: var(--primary);
 
     &:hover {
       background-color: var(--dark-primary);

@@ -43,7 +43,7 @@ const Home: React.FC = () => {
           Erro ao carregar as pautas...
         </h2>
       )}
-      {!topics?.length && (
+      {!topics?.length && !error && (
         <h2 style={{ textAlign: 'center' }} role="alert">
           Nenhuma pauta encontrada...
         </h2>

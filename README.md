@@ -39,7 +39,7 @@ https://github.com/IanFarias/challenge-sicredi.git
  -Instale em sua máquina o ambiente de desenvolvimento - [IntelliJ Idea](https://www.jetbrains.com/pt-br/idea/download/)
 
 <p>
-Ao abrir o projeto no IntelliJ, automaticamente a ferramenta Maven, deve buscar e atualizar todas as dependências, 
+Entre no diretório 'challenge-api' e abra o projeto no IntelliJ, automaticamente a ferramenta Maven, deve buscar e atualizar todas as dependências, 
 mas caso isso não ocorra, vá na aba **View -> Tool Windows -> Maven -> LifeCycle -> Install**, para caso, fique faltando algo, seja instalado.
   
 > Configure as variáveis de ambiente do projeto no IntelliJ:
@@ -53,3 +53,14 @@ Para rodar a aplicação, encontre o arquivo: ChallengeapiApplication.java e cli
 Por padrão, a aplicação ira rodar nessa URL: http://localhost:8080/challenge-api
 <p/>
 <br/>
+
+### - No front-end da aplicação (Visual Studio Code - ReactJS): 
+> Baixe o editor de código fonte [Visual Studio Code](https://code.visualstudio.com/) e instale em sua máquina um dos gerenciadores de pacote a seguir [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/#windows-stable) ou [NodeJs(NPM)](https://nodejs.org/en/download/)
+
+<p>
+Entre no diretório challenge-app e abra o projeto no VSCode, abra o terminal (Ctrl+ ' ) e digite: yarn install ou npm install (dependendo do gerenciador acima escolhido)
+ 
+> Crie e Configure o arquivo na '.env' na raíz no projeto da forma como está no arquivo '.env.example'. E coloque a URL que está rodando a API.
+ 
+Para rodar a aplicação, digite yarn dev ou npm run dev e aguarde iniciar a rota: http://127.0.0.1:5173/
+</p>

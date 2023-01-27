@@ -1,6 +1,7 @@
 package br.com.sicredi.challengeapi.service;
 
 import br.com.sicredi.challengeapi.dto.CreateAssociateDTO;
+import br.com.sicredi.challengeapi.exception.AlreadyExistsException;
 import br.com.sicredi.challengeapi.exception.NotFoundException;
 import br.com.sicredi.challengeapi.mapper.AssociateMapper;
 import br.com.sicredi.challengeapi.model.Associate;
@@ -17,7 +18,13 @@ public class AssociateService {
     @Autowired
     private AssociateRepository repository;
 
-    public void create(CreateAssociateDTO associateDTO) {
+    public void create(CreateAssociateDTO associateDTO) throws AlreadyExistsException {
+        boolean alreadyExists = repository.existsByCpf(associateDTO.cpf());
+
+        if(alreadyExists) {
+            throw new AlreadyExistsException();
+        }
+
         Associate associate = AssociateMapper.fromDtoToEntity(associateDTO);
 
         repository.save(associate);

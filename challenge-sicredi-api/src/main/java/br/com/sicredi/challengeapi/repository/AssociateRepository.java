@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface AssociateRepository extends JpaRepository<Associate, Long> {
 
     Associate findByCpf(String cpf);
+
+    boolean existsByCpf(String cpf);
 }

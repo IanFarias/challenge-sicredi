@@ -1,6 +1,6 @@
 export const formatMinutesToHour = (minutes: number) => {
   if (minutes < 60) {
-    return `${minutes} minutos`;
+    return `${minutes} minuto(s)`;
   }
 
   const hours = Math.floor(minutes / 60);
@@ -13,9 +13,8 @@ export const formatMinutesToHour = (minutes: number) => {
 };
 
 export const formatDate = (date: Date) => {
-  const formattedDate = new Date(date).toLocaleString('pt-BR', {
-    timeZone: 'UTC',
-  });
+  const formattedDate = new Date(date).toLocaleDateString('pt-BR');
+  const formattedHour = new Date(date).toLocaleTimeString('pt-BR');
 
-  return formattedDate;
+  return `${formattedHour}h - ${formattedDate}`;
 };

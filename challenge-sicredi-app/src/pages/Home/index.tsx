@@ -35,7 +35,7 @@ const Home: React.FC = () => {
   return (
     <S.Container>
       <h1>Assembleia Virtual</h1>
-      <Button type="button" onClick={handleModal}>
+      <Button type="button" onClick={handleModal} variant="danger">
         Criar nova pauta
       </Button>
       {error && (

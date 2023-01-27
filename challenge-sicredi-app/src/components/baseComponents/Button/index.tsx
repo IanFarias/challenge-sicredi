@@ -4,13 +4,13 @@ import * as S from './styles';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   onClick?: () => void;
-  variant?: 'primary';
+  variant?: 'primary' | 'secondary' | 'danger' | 'iconButton';
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
-  variant,
+  variant = 'primary',
   ...props
 }) => {
   return (

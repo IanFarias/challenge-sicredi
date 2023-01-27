@@ -16,7 +16,6 @@ export const Form = styled.form`
 
   button {
     font-size: 18px;
-    color: var(--white);
   }
 `;
 

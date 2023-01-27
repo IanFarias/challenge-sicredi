@@ -25,13 +25,7 @@ export const Form = styled.form`
   margin-top: 40px;
 
   button {
-    color: var(--white);
     font-size: 20px;
-    width: 100%;
-
-    &:hover {
-      background-color: var(--dark-primary);
-    }
   }
 `;
 

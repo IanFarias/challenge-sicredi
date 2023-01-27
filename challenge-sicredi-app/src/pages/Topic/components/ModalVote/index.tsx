@@ -114,7 +114,9 @@ const ModalVote: React.FC<Props> = ({ sessionId, closeModal }: Props) => {
           <InputError>Escolha uma opção de voto!</InputError>
         )}
         <S.ButtonContainer>
-          <Button type="submit">Votar</Button>
+          <Button type="submit" variant="danger">
+            Votar
+          </Button>
         </S.ButtonContainer>
       </S.Form>
     </S.Container>

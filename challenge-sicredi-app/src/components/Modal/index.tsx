@@ -29,7 +29,11 @@ const Modal: React.FC<ModalProps> = ({
       }}
     >
       <S.ModalBody>
-        <Button className="modal-close-button" onClick={onRequestClose}>
+        <Button
+          className="modal-close-button"
+          onClick={onRequestClose}
+          variant="iconButton"
+        >
           <span aria-hidden>X</span>
           <VisuallyHidden>Fechar Modal</VisuallyHidden>
         </Button>

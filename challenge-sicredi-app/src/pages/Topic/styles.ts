@@ -18,11 +18,6 @@ export const SessionInfo = styled.section`
   button {
     font-size: 18px;
     max-width: 200px;
-    color: var(--white);
-
-    &:hover {
-      background-color: var(--dark-primary);
-    }
 
     &:disabled {
       opacity: 0.5;

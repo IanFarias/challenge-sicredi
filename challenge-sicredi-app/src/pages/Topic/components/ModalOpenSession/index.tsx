@@ -67,7 +67,7 @@ export const ModalOpenSession: React.FC = () => {
             </InputError>
           )}
         </div>
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="secondary">
           Abrir sessão
         </Button>
       </S.Form>

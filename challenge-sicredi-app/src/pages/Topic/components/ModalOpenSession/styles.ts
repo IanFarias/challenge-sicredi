@@ -11,10 +11,4 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
-
-  button {
-    color: var(--white);
-    font-size: 16px;
-    background-color: var(--success);
-  }
 `;

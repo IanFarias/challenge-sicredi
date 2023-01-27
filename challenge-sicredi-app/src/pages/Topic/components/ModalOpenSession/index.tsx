@@ -5,11 +5,16 @@ import Input from '../../../../components/baseComponents/Input';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useChallengeApi } from '../../../../services/api/useChallengeApi';
 import { useParams } from 'react-router-dom';
-import * as S from './styles';
 import InputError from '../../../../components/baseComponents/InputError';
+import * as S from './styles';
 
 interface IFormData {
   duration: string;
+}
+
+interface Props {
+  closeModal: () => void;
+  onOpenSession: () => void;
 }
 
 const formErrors: {
@@ -23,7 +28,10 @@ const formErrors: {
   },
 };
 
-export const ModalOpenSession: React.FC = () => {
+export const ModalOpenSession: React.FC<Props> = ({
+  onOpenSession,
+  closeModal,
+}: Props) => {
   const { openVotingSession } = useChallengeApi();
   const { id } = useParams();
 
@@ -42,8 +50,8 @@ export const ModalOpenSession: React.FC = () => {
   const onSubmit = async (data: any) => {
     try {
       await openVotingSession(Number(id), data.duration);
-
-      window.location.reload();
+      onOpenSession();
+      closeModal();
     } catch (error) {
       console.log('erro ao criar sessao');
     }

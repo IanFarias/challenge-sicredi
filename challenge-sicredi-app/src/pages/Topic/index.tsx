@@ -16,13 +16,13 @@ const Topic: React.FC = () => {
 
   const { getTopicById } = useChallengeApi();
 
+  const getInfo = async () => {
+    const response = await getTopicById(Number(id));
+
+    setTopic(response);
+  };
+
   useEffect(() => {
-    const getInfo = async () => {
-      const response = await getTopicById(Number(id));
-
-      setTopic(response);
-    };
-
     getInfo();
   }, []);
 
@@ -108,7 +108,7 @@ const Topic: React.FC = () => {
         {topic?.session ? (
           <ModalVote sessionId={topic.session.id} closeModal={handleModal} />
         ) : (
-          <ModalOpenSession />
+          <ModalOpenSession onOpenSession={getInfo} closeModal={handleModal} />
         )}
       </Modal>
     </S.Container>
